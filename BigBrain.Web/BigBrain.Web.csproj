@@ -1,20 +1,22 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>71cac2c9-1227-4d75-ab75-0de3db66634f</UserSecretsId>
   </PropertyGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Hangfire" />
     <PackageReference Include="Hangfire.Console" />
     <PackageReference Include="Hangfire.SqlServer" />
     <PackageReference Include="Microsoft.Data.SqlClient" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BigBrain.Core\BigBrain.Core.csproj" />
+    <ProjectReference Include="..\BigBrain.Infrastructure\BigBrain.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

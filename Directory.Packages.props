@@ -6,9 +6,12 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
+    <PackageVersion Include="Azure.Identity" Version="1.16.0" />
     <PackageVersion Include="Hangfire" Version="1.8.21" />
     <PackageVersion Include="Hangfire.Console" Version="1.4.3" />
     <PackageVersion Include="Hangfire.SqlServer" Version="1.8.21" />
     <PackageVersion Include="Microsoft.Data.SqlClient" Version="6.1.1" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.UserSecrets" Version="6.0.1" />
+    <PackageVersion Include="Microsoft.Graph" Version="5.92.0" />
   </ItemGroup>
 </Project>
