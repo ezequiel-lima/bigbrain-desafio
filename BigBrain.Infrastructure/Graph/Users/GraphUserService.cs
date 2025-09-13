@@ -20,6 +20,12 @@ namespace BigBrain.Infrastructure.Graph.Users
                 ? await _graphClient.Users.GetAsync(config =>
                 {
                     config.QueryParameters.Top = 999;
+                    config.QueryParameters.Select = new[]
+                    {
+                        "id", "businessPhones", "displayName", "givenName", "jobTitle",
+                        "mail", "mobilePhone", "officeLocation", "preferredLanguage",
+                        "surname", "userPrincipalName"
+                    };
                 })
                 : await _graphClient.Users.WithUrl(nextLink).GetAsync();
 

@@ -19,6 +19,8 @@ app.UseHttpsRedirection();
 
 app.UseHangfireBoard();
 
+HangfireJobConfiguration.Register();
+
 app.UseAuthorization();
 
 app.MapControllers();

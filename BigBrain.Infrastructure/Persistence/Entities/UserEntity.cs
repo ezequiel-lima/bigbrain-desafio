@@ -1,4 +1,6 @@
-﻿using BigBrain.Core.Dtos;
+﻿using BigBrain.Core.Models;
+using Microsoft.Graph.Models;
+using System.Text.Json;
 
 namespace BigBrain.Infrastructure.Persistence.Entities
 {
@@ -16,21 +18,21 @@ namespace BigBrain.Infrastructure.Persistence.Entities
         public string? Surname { get; set; }
         public string? UserPrincipalName { get; set; }
 
-        public static explicit operator UserEntity(GraphUserDto graphUserDto)
+        public static explicit operator UserEntity(UserModel user)
         {
             return new UserEntity
             {
-                Id = graphUserDto.Id!.Value,
-                BusinessPhones = graphUserDto.BusinessPhones,
-                DisplayName = graphUserDto.DisplayName,
-                GivenName = graphUserDto.GivenName,
-                JobTitle = graphUserDto.JobTitle,
-                Mail = graphUserDto.Mail,
-                MobilePhone = graphUserDto.MobilePhone,
-                OfficeLocation = graphUserDto.OfficeLocation,
-                PreferredLanguage = graphUserDto.PreferredLanguage,
-                Surname = graphUserDto.Surname,
-                UserPrincipalName = graphUserDto.UserPrincipalName,
+                Id = user.Id,
+                BusinessPhones = user.BusinessPhones,
+                DisplayName = user.DisplayName,
+                GivenName = user.GivenName,
+                JobTitle = user.JobTitle,
+                Mail = user.Mail,
+                MobilePhone = user.MobilePhone,
+                OfficeLocation = user.OfficeLocation,
+                PreferredLanguage = user.PreferredLanguage,
+                Surname = user.Surname,
+                UserPrincipalName = user.UserPrincipalName
             };
         }
     }
