@@ -3,7 +3,7 @@ using BigBrain.Core.Interfaces;
 using BigBrain.Infrastructure.Graph.Auth;
 using Microsoft.Graph;
 
-namespace BigBrain.Infrastructure.Users
+namespace BigBrain.Infrastructure.Graph.Users
 {
     public class GraphUserService : IGraphUserService
     {

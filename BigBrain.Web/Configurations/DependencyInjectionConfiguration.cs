@@ -1,6 +1,6 @@
 ﻿using BigBrain.Core.Interfaces;
 using BigBrain.Infrastructure.Graph.Auth;
-using BigBrain.Infrastructure.Users;
+using BigBrain.Infrastructure.Graph.Users;
 
 namespace BigBrain.Web.Configurations
 {
