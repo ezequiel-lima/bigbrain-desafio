@@ -1,14 +1,16 @@
-var builder = WebApplication.CreateBuilder(args);
+using BigBrain.Web.Configurations;
 
-// Add services to the container.
+var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 
+builder.AddHangfireConfiguration();
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
 app.UseHttpsRedirection();
+
+app.UseHangfireBoard();
 
 app.UseAuthorization();
 
