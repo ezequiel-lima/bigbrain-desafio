@@ -15,7 +15,7 @@ namespace BigBrain.Infrastructure.Jobs
             _logger = logger;
         }
 
-        public async Task ExecuteAsync(PerformContext context)
+        public async Task ExecuteAsync(PerformContext? context = null)
         {
             _logger.LogInformation("Initiating Microsoft Graph user synchronization...");
             await _syncService.ExecuteAsync(context);
