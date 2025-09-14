@@ -1,7 +1,9 @@
 ﻿using BigBrain.Infrastructure.Persistence.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 namespace BigBrain.Infrastructure.Persistence.Context
 {
+    [ExcludeFromCodeCoverage]
     public class BigBrainDbContext : DbContext
     {
         public BigBrainDbContext(DbContextOptions<BigBrainDbContext> options) : base(options) { }

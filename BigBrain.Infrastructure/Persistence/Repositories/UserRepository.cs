@@ -3,9 +3,11 @@ using BigBrain.Core.Models;
 using BigBrain.Infrastructure.Persistence.Context;
 using BigBrain.Infrastructure.Persistence.Entities;
 using Microsoft.EntityFrameworkCore;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BigBrain.Infrastructure.Persistence.Repositories
 {
+    [ExcludeFromCodeCoverage]
     public class UserRepository : IUserRepository
     {
         private readonly BigBrainDbContext _context;

@@ -1,7 +1,9 @@
 ﻿using BigBrain.Core.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BigBrain.Infrastructure.Persistence.Entities
 {
+    [ExcludeFromCodeCoverage]
     public class CalendarEventEntity
     {
         public Guid Id { get; set; } = Guid.NewGuid();

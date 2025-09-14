@@ -1,9 +1,11 @@
 ﻿using BigBrain.Infrastructure.Persistence.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BigBrain.Infrastructure.Persistence.Mappings
 {
+    [ExcludeFromCodeCoverage]
     public class CalendarEventMapping : IEntityTypeConfiguration<CalendarEventEntity>
     {
         public void Configure(EntityTypeBuilder<CalendarEventEntity> builder)

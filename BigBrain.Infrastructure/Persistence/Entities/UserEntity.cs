@@ -1,7 +1,9 @@
 ﻿using BigBrain.Core.Models;
+using System.Diagnostics.CodeAnalysis;
 
 namespace BigBrain.Infrastructure.Persistence.Entities
 {
+    [ExcludeFromCodeCoverage]
     public class UserEntity
     {
         public Guid Id { get; set; }

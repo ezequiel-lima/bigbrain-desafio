@@ -22,6 +22,7 @@ namespace BigBrain.Infrastructure.Jobs
             _logger.LogInformation("Initiating Microsoft Graph user synchronization...");
             await _syncService.ExecuteAsync(context);
             _logger.LogInformation("Microsoft Graph user synchronization finished successfully.");
+
             BackgroundJob.Enqueue<GraphUserCalendarSyncJob>(job => job.ExecuteAsync(null));
         }
     }
