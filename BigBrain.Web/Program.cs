@@ -1,3 +1,4 @@
+using BigBrain.Core.Configurations;
 using BigBrain.Web.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);

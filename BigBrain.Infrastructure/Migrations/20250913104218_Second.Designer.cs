@@ -4,6 +4,7 @@ using BigBrain.Infrastructure.Persistence.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace BigBrain.Infrastructure.Migrations
 {
     [DbContext(typeof(BigBrainDbContext))]
-    partial class BigBrainDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250913104218_Second")]
+    partial class Second
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,13 +27,10 @@ namespace BigBrain.Infrastructure.Migrations
 
             modelBuilder.Entity("BigBrain.Infrastructure.Persistence.Entities.CalendarEventEntity", b =>
                 {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier")
-                        .HasDefaultValueSql("NEWID()");
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("ICalUId")
-                        .IsRequired()
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
@@ -55,12 +55,7 @@ namespace BigBrain.Infrastructure.Migrations
                     b.Property<DateTime?>("ResponseTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
+                    b.HasKey("UserId", "ICalUId");
 
                     b.ToTable("UserCalendarEvents", (string)null);
                 });
@@ -122,11 +117,13 @@ namespace BigBrain.Infrastructure.Migrations
 
             modelBuilder.Entity("BigBrain.Infrastructure.Persistence.Entities.CalendarEventEntity", b =>
                 {
-                    b.HasOne("BigBrain.Infrastructure.Persistence.Entities.UserEntity", null)
+                    b.HasOne("BigBrain.Infrastructure.Persistence.Entities.UserEntity", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

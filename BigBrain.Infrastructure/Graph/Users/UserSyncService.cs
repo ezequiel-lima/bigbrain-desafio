@@ -22,7 +22,7 @@ namespace BigBrain.Infrastructure.Graph.Users
             var stopwatch = Stopwatch.StartNew();
             context?.WriteLine($"[{DateTime.Now:HH:mm:ss}] Starting full user synchronization...");
 
-            await _userRepository.TruncateUsersAsync();
+            await _userRepository.DeleteUsersAsync();
             context?.WriteLine($"[{DateTime.Now:HH:mm:ss}] User table successfully truncated.");
 
             long totalUsersSaved = 0;

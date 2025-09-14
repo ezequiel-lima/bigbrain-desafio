@@ -7,6 +7,7 @@ namespace BigBrain.Infrastructure.Persistence.Context
         public BigBrainDbContext(DbContextOptions<BigBrainDbContext> options) : base(options) { }
 
         public DbSet<UserEntity> Users { get; set; }
+        public DbSet<CalendarEventEntity> CalendarEvents { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

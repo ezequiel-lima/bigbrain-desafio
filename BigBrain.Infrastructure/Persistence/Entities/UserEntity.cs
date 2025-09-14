@@ -1,6 +1,4 @@
 ﻿using BigBrain.Core.Models;
-using Microsoft.Graph.Models;
-using System.Text.Json;
 
 namespace BigBrain.Infrastructure.Persistence.Entities
 {

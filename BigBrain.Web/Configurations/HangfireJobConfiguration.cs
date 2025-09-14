@@ -10,7 +10,14 @@ namespace BigBrain.Web.Configurations
             RecurringJob.AddOrUpdate<GraphUserSyncJob>(
                 "sync-graph-users",
                 job => job.ExecuteAsync(null),
-                Cron.Hourly);
+                "0 2 * * *"
+            );
+
+            RecurringJob.AddOrUpdate<GraphUserCalendarSyncJob>(
+                "sync-graph-users-calendars",
+                job => job.ExecuteAsync(null),
+                Cron.Never() 
+            );
         }
     }
 }

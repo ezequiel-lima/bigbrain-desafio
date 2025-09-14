@@ -6,12 +6,12 @@ using Microsoft.Extensions.Logging;
 namespace BigBrain.Infrastructure.Jobs
 {
     [AutomaticRetry(Attempts = 3, DelaysInSeconds = new[] { 10, 30, 60 }, OnAttemptsExceeded = AttemptsExceededAction.Fail)]
-    public class GraphUserSyncJob
+    public class GraphUserCalendarSyncJob
     {
-        private readonly IUserSyncService _syncService;
-        private readonly ILogger<GraphUserSyncJob> _logger;
+        private readonly ICalendarEventSyncService _syncService;
+        private readonly ILogger<GraphUserCalendarSyncJob> _logger;
 
-        public GraphUserSyncJob(IUserSyncService syncService, ILogger<GraphUserSyncJob> logger)
+        public GraphUserCalendarSyncJob(ICalendarEventSyncService syncService, ILogger<GraphUserCalendarSyncJob> logger)
         {
             _syncService = syncService;
             _logger = logger;
@@ -19,10 +19,9 @@ namespace BigBrain.Infrastructure.Jobs
 
         public async Task ExecuteAsync(PerformContext? context = null)
         {
-            _logger.LogInformation("Initiating Microsoft Graph user synchronization...");
+            _logger.LogInformation("Initiating Microsoft Graph calendar events synchronization...");
             await _syncService.ExecuteAsync(context);
-            _logger.LogInformation("Microsoft Graph user synchronization finished successfully.");
-            BackgroundJob.Enqueue<GraphUserCalendarSyncJob>(job => job.ExecuteAsync(null));
+            _logger.LogInformation("Microsoft Graph calendar events synchronization finished successfully.");
         }
     }
 }
