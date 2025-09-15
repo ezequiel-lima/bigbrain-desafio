@@ -7,16 +7,22 @@ namespace BigBrain.Web.Configurations
     {
         public static void Register()
         {
-            RecurringJob.AddOrUpdate<GraphUserSyncJob>(
-                "sync-graph-users",
-                job => job.ExecuteAsync(null),
+            RecurringJob.AddOrUpdate(
+                "graph-chained-sync",
+                () => HangfireJobConfiguration.RunChainedSync(),
                 "0 2 * * *"
             );
+        }
 
-            RecurringJob.AddOrUpdate<GraphUserCalendarSyncJob>(
-                "sync-graph-users-calendars",
-                job => job.ExecuteAsync(null),
-                Cron.Never() 
+        public static void RunChainedSync()
+        {
+            var GraphUserSyncJobId = BackgroundJob.Enqueue<GraphUserSyncJob>(
+                job => job.ExecuteAsync(null)
+            );
+
+            BackgroundJob.ContinueJobWith<GraphUserCalendarSyncJob>(
+                GraphUserSyncJobId,
+                job => job.ExecuteAsync(null)
             );
         }
     }
