@@ -2,6 +2,19 @@
 
 Este repositório apresenta minha solução desenvolvida em .NET 8, cujo objetivo é realizar uma integração com o Microsoft Graph API para consulta de usuários e eventos de calendário de um tenant Azure AD.
 
+A aplicação realiza:
+
+- Autenticação com o Microsoft Graph;
+- Listagem de todos os usuários do tenant;
+- Consulta dos eventos de calendário de cada usuário;
+- Persistência dos dados no banco de dados SqlServer.
+
+Além disso, foram aplicadas as seguintes práticas e ferramentas:
+
+- **Agendamento de tarefas com Hangfire**, para execução automática das rotinas;
+- **Testes unitários** utilizando xUnit e Moq;
+- **Centralização das dependências NuGet** utilizando `Directory.Packages.props`;
+
 ## Como executar o projeto
 Para executar o projeto, siga as seguintes etapas:
 1. Clone este repositório em sua máquina local usando o comando:
