@@ -15,6 +15,11 @@ Além disso, foram aplicadas as seguintes práticas e ferramentas:
 - **Testes unitários** utilizando xUnit e Moq;
 - **Centralização das dependências NuGet** utilizando `Directory.Packages.props`;
 
+## Demonstração
+
+<img width="1904" height="827" alt="image" src="https://github.com/user-attachments/assets/054ec4e1-9d52-40d6-b02e-e5213fe848f8" />
+<img width="1894" height="946" alt="image" src="https://github.com/user-attachments/assets/ef45caea-9b1f-4e11-9092-b4b45fa13571" />
+
 ## Como executar o projeto
 Para executar o projeto, siga as seguintes etapas:
 1. Clone este repositório em sua máquina local usando o comando:
